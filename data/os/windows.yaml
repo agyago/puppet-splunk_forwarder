@@ -1,0 +1,6 @@
+---
+splunk_forwarder::install::souorce: https://download.splunk.com/products/universalforwarder/releases/8.2.4/windows/splunkforwarder-8.2.4-87e2dda940d1-x86-release.msi?_ga=2.132529934.1898019414.1669655912-48283443.1668539445
+splunk_forwarder::install::splunk_file: splunkforwarder-8.2.4-87e2dda940d1-x64-release.msi
+splunk_forwarder::install::splunk_pkg: UniversalForwarder
+splunk_forwarder::install::provider: windows
+splunk_forwarder::post_install::splunk_home: C:/Program Files/SplunkUniversalForwarder

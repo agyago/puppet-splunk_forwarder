@@ -1,0 +1,6 @@
+---
+splunk_forwarder::install::source: https://download.splunk.com/products/universalforwarder/releases/8.2.4/linux/splunkforwarder-8.2.4-87e2dda940d1-linux-2.6-x86_64.rpm?_ga=2.240980867.1898019414.1669655912-48283443.1668539445
+splunk_forwarder::install::splunk_file: splunkforwarder-8.2.4-87e2dda940d1-linux-2.6-x86_64.rpm
+splunk_forwarder::install::splunk_pkg: splunkforwarder-8.2.4-87e2dda940d1
+splunk_forwarder::install::provider: rpm
+splunk_forwarder::post_install::splunk_home: /opt/splunkforwarder
