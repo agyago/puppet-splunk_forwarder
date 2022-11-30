@@ -27,9 +27,44 @@ Define your splunk servers and if possible the binaries for the forwarders ( the
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your
-users how to use your module to solve problems, and be sure to include code
-examples. Include three to five examples of the most important or common tasks a
-user can accomplish with your module. Show users how to accomplish more complex
-tasks that involve different types, classes, and functions working in tandem.
+the basic way of adding this splunk forwarder module to other module or role is to define the logs you want it to digest and pass it to the index server. 
+example:
+```
+class drovio::splunk_forwarder {
+  include splunk_forwarder
 
+  $log_files = "/var/log/drovio/*.log"
+  splunk_forwarder::input{
+    'drovio_logs':
+      target_index => 'itsys_drovio',
+      disabled     => 'false',
+      input_file   => $log_files,
+  }
+
+}
+```
+it can have multiple logs too.
+```
+class tableau::splunk_forwarder{
+  tag 'tableau_splunk_forwarder'
+
+  include splunk_forwarder
+
+  $log_file1 = '/var/opt/tableau/tableau_server/data/tabsvc/logs/vizportal/*.log'
+  splunk_forwarder::input{
+    'tableau_logs1':
+      target_index => 'itsys_tableau',
+      sourcetype   => 'catalina',
+      disabled     => 'false',
+      input_file   => $log_file1,
+  }
+
+  $log_file2 = '/var/opt/tableau/tableau_server/data/tabsvc/logs/tabadmincontroller/*.log'
+  splunk_forwarder::input{
+    'tableau_logs2':
+      target_index => 'itsys_tableau',
+      sourcetype   => 'catalina',
+      disabled     => 'false',
+      input_file   => $log_file2,
+  }
+  ```
