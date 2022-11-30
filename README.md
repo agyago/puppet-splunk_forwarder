@@ -19,7 +19,7 @@ This module provides a method to deploy splunk forwarders to windows and linux. 
 
 ### Setup Requirements **OPTIONAL**
 
-This assuems that you already have splunk enterprise server set up. This is only for forwarders.
+This assumes that you already have splunk enterprise server set up. This is only for forwarders.
 
 ### Beginning with splunk_forwarder
 
@@ -29,6 +29,14 @@ Define your splunk servers and if possible the binaries for the forwarders ( the
 
 the basic way of adding this splunk forwarder module to other module or role is to define the logs you want it to digest and pass it to the index server. 
 example:
+```bash
+drovio
+├── manifests
+│   ├── init.pp
+│   ├── splunk_forwarder.pp
+│   ├── test.pp
+```
+
 ```
 class drovio::splunk_forwarder {
   include splunk_forwarder
