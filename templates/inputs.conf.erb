@@ -1,0 +1,12 @@
+[default]
+host = <%= @host_name %>
+
+[monitor://<%= @log_file %>]
+disabled = false 
+sourcetype = bind_general_log
+index = <%= @splunk_index %>
+
+[monitor:///var/log/dhcpd]
+disabled = false
+sourcetype = dhcpd
+index = host_dhcp

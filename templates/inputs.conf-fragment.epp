@@ -1,0 +1,13 @@
+[<%= $section -%>]
+<% if $host { -%>
+host=<%= $host %>
+<% } -%>
+<% if $index { -%>
+index=<%= $index %>
+<% } -%>
+<% if $disabled { -%>
+disabled=<%= $disabled %>
+<% } -%>
+<% if $sourcetype { -%>
+sourcetype=<%= $sourcetype %>
+<% } -%>
